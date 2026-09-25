@@ -15,6 +15,14 @@ android {
         versionName = "1.0"
     }
 
+    // This forces the compiler to look directly at the flat root directory for all code files
+    sourceSets {
+        getByName("main") {
+            java.setSrcDirs(listOf("."))
+            manifest.srcFile("AndroidManifest.xml")
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
